@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LeafLens Mini — Plant Doctor + Gemini Chat</title>
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- TensorFlow Models -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+
+<style>
+  html,body { background:#0b1220; color:#e6e9f2; }
+  .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.08); }
+  canvas { max-width: 100%; height: auto; }
+  .tag { background: rgba(255,255,255,0.08); padding:2px 8px; border-radius:999px; margin-right:6px; }
+  .mono { font-family: monospace; }
+  .blink { animation: blink 1.2s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+</style>
+</head>
+
+<body class="min-h-dvh">
+
+<header class="max-w-6xl mx-auto px-4 py-6 flex justify-between">
+  <h1 class="text-2xl sm:text-3xl font-semibold">🌿 LeafLens Mini</h1>
+  <div class="text-xs sm:text-sm opacity-80">Frontend-only • TFJS + Gemini</div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 grid lg:grid-cols-3 gap-6 pb-10">
+  
+<!-- Upload -->
+<section class="lg:col-span-2 glass rounded-2xl p-6">
+  <h2 class="text-lg font-semibold mb-3">1) Upload a photo</h2>
+
+  <div class="flex flex-wrap gap-3">
+    <label>
+      <input id="fileInput" type="file" accept="image/*" class="hidden">
+      <span class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-xl cursor-pointer">Choose Image</span>
+    </label>
+    <button id="cameraBtn" class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-xl">Use Camera</button>
+    <label class="flex items-center gap-2 text-sm">
+      <input id="treatAsPlant" type="checkbox" class="accent-emerald-400">
+      Treat as plant
+    </label>
+    <span id="status" class="text-xs opacity-80"></span>
+  </div>
+
+  <div class="mt-4 grid md:grid-cols-2 gap-4">
+    <div class="glass p-3 rounded-xl">
+      <img id="img" class="rounded-lg w-full hidden"/>
+      <video id="video" class="rounded-lg w-full hidden" autoplay playsinline></video>
+      <canvas id="canvas" class="rounded-lg w-full"></canvas>
+      <div class="flex gap-2 mt-2">
+        <button id="snapBtn" class="px-3 py-2 bg-slate-700 rounded-lg hidden">Snap</button>
+        <button id="clearBtn" class="px-3 py-2 bg-slate-700 rounded-lg">Clear</button>
+      </div>
+    </div>
+
+    <div class="glass p-3 rounded-xl">
+      <div class="opacity-80 text-sm mb-2">Detections</div>
+      <div id="detections" class="text-sm space-y-2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="glass rounded-2xl p-6">
+  <h2 class="text-lg font-semibold mb-3">2) Plant Doctor</h2>
+  <div id="summary" class="text-sm space-y-2"></div>
+  <hr class="border-white/10 my-3">
+  <div>
+    <div class="opacity-80 text-sm mb-2">Care Suggestions</div>
+    <ul id="care" class="list-disc list-inside text-sm space-y-1"></ul>
+  </div>
+</section>
+
+<!-- Gemini Chat -->
+<section class="glass rounded-2xl p-6 lg:col-span-3">
+  <div class="flex justify-between mb-2">
+    <h2 class="text-lg font-semibold">3) Chatbot (Gemini API)</h2>
+    <div id="llmStatus" class="text-xs opacity-80">Idle</div>
+  </div>
+
+  <div id="chat" class="h-72 overflow-y-auto p-3 rounded-xl bg-black/30 space-y-3 text-sm"></div>
+
+  <div class="mt-3 flex gap-2">
+    <input id="chatInput" class="flex-1 px-3 py-2 bg-slate-800 rounded-xl" placeholder="Ask plant questions...">
+    <button id="sendBtn" class="px-4 py-2 bg-emerald-500 text-black rounded-xl">Send</button>
+    <button id="loadLLM" class="px-4 py-2 bg-slate-700 rounded-xl">Add API Key</button>
+  </div>
+</section>
+
+</main>
+
+<script>
+// ================================== MODELS ==================================
+let cocoModel=null, mobileNet=null;
+
+async function loadModels() {
+  if(!cocoModel) cocoModel = await cocoSsd.load();
+  if(!mobileNet) mobileNet = await mobilenet.load();
+  statusEl.textContent="Ready!";
+}
+
+// ================================== DOM ==================================
+const fileInput = document.getElementById("fileInput");
+const cameraBtn = document.getElementById("cameraBtn");
+const snapBtn = document.getElementById("snapBtn");
+const clearBtn = document.getElementById("clearBtn");
+const imgEl = document.getElementById("img");
+const videoEl = document.getElementById("video");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const detectionsEl = document.getElementById("detections");
+const summaryEl = document.getElementById("summary");
+const careEl = document.getElementById("care");
+const statusEl = document.getElementById("status");
+const treatAsPlantEl = document.getElementById("treatAsPlant");
+
+// ================================== UTIL ==================================
+function addMsg(role,text){
+  const chat=document.getElementById("chat");
+  const div=document.createElement("div");
+  div.className= role==="user"
+    ?"self-end bg-indigo-500/20 p-2 rounded-xl"
+    :"self-start bg-emerald-500/20 p-2 rounded-xl";
+  div.textContent=text;
+  chat.appendChild(div);
+  chat.scrollTop=chat.scrollHeight;
+}
+
+function draw(el){
+  const w=el.videoWidth||el.naturalWidth, h=el.videoHeight||el.naturalHeight;
+  canvas.width=w; canvas.height=h;
+  ctx.drawImage(el,0,0,w,h);
+}
+
+// ================================== INPUT ==================================
+fileInput.onchange=e=>{
+  const img=e.target.files[0];
+  imgEl.src=URL.createObjectURL(img);
+  imgEl.onload=()=>{imgEl.classList.remove("hidden"); videoEl.classList.add("hidden"); snapBtn.classList.add("hidden"); draw(imgEl); analyze();}
+};
+
+cameraBtn.onclick=async()=>{
+  const stream=await navigator.mediaDevices.getUserMedia({video:true});
+  videoEl.srcObject=stream; videoEl.classList.remove("hidden"); imgEl.classList.add("hidden"); snapBtn.classList.remove("hidden");
+};
+snapBtn.onclick=()=>{draw(videoEl); analyze();};
+clearBtn.onclick=()=>{ctx.clearRect(0,0,canvas.width,canvas.height); detectionsEl.innerHTML=""; summaryEl.innerHTML=""; careEl.innerHTML="";};
+
+// ================================== ANALYSIS ==================================
+async function analyze(){
+  await loadModels();
+  detectionsEl.innerHTML=""; summaryEl.innerHTML=""; careEl.innerHTML="";
+
+  const preds=await cocoModel.detect(canvas);
+  preds.forEach(b=>{ctx.strokeStyle="lime";ctx.strokeRect(...b.bbox);});
+  detectionsEl.innerHTML=preds.length?preds.map(p=>`<div>${p.class}</div>`).join(""):"None";
+
+  const mobi=await mobileNet.classify(canvas,5);
+  const best=mobi[0].className;
+  const isPlant = treatAsPlantEl.checked || /plant|tree|leaf|flower/.test(best.toLowerCase());
+
+  summaryEl.innerHTML=`Detected: <b>${best}</b><br>Plant: <b>${isPlant?"Yes":"No"}</b>`;
+
+  if(isPlant){
+    careEl.innerHTML="<li>Water regularly</li><li>Ensure sunlight</li><li>Check soil drainage</li>";
+  } else {
+    careEl.innerHTML="<li>Ask chat for help</li>";
+  }
+}
+
+// ================================== GEMINI CHAT ==================================
+let GEMINI_API_KEY="";
+const loadBtn=document.getElementById("loadLLM");
+const sendBtn=document.getElementById("sendBtn");
+const chatInput=document.getElementById("chatInput");
+const llmStatus=document.getElementById("llmStatus");
+
+loadBtn.onclick=()=>{
+  GEMINI_API_KEY = prompt("Enter your Gemini API Key:");
+  llmStatus.textContent = GEMINI_API_KEY?"Gemini Ready ✅":"No Key ❌";
+};
+
+async function callGemini(prompt){
+  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,{
+    method:"POST",
+    headers:{ "Content-Type":"application/json"},
+    body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}]})
+  });
+  const data=await res.json();
+  return data?.candidates?.[0]?.content?.parts?.[0]?.text || "Hmm... no answer 🤔";
+}
+
+sendBtn.onclick=async()=>{
+  const q=chatInput.value.trim(); if(!q) return;
+  addMsg("user",q); chatInput.value=""; llmStatus.textContent="Thinking...";
+  const a=await callGemini(q);
+  addMsg("assistant",a);
+  llmStatus.textContent="Ready ✅";
+};
+
+// Boot
+loadModels();
+</script>
+
+</body>
+</html>

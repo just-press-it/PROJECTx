@@ -4,6 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>LeafLens Mini — Plant Doctor + Gemini Chat</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"></script>
+<script type="module">
+  import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+
+  window.GoogleGenerativeAI = GoogleGenerativeAI;
+</script>
 
 <!-- Tailwind via CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -177,38 +183,59 @@ async function analyze(){
 }
 
 // ================================== GEMINI CHAT ==================================
-let GEMINI_API_KEY="AIzaSyB8lWR0TK-vW2zvn2GfpJJtitaCpnYBuu8";
-const loadBtn=document.getElementById("loadLLM");
-const sendBtn=document.getElementById("sendBtn");
-const chatInput=document.getElementById("chatInput");
-const llmStatus=document.getElementById("llmStatus");
+// Gemini Chatbot working in browser
+let GEMINI_API_KEY = "AIzaSyB8lWR0TK-vW2zvn2GfpJJtitaCpnYBuu8";
+const loadBtn = document.getElementById("loadLLM");
+const sendBtn = document.getElementById("sendBtn");
+const chatInput = document.getElementById("chatInput");
+const chatBox = document.getElementById("chat");
+const llmStatus = document.getElementById("llmStatus");
 
-loadBtn.onclick=()=>{
-  GEMINI_API_KEY = prompt("Enter your Gemini API Key:");
-  llmStatus.textContent = GEMINI_API_KEY?"Gemini Ready ✅":"No Key ❌";
+loadBtn.onclick = () => {
+  GEMINI_API_KEY = prompt("Enter Gemini API Key:");
+  llmStatus.textContent = GEMINI_API_KEY ? "Gemini Ready ✅" : "No Key ❌";
 };
 
-async function callGemini(prompt){
-  const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,{
-    method:"POST",
-    headers:{ "Content-Type":"application/json"},
-    body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}]})
-  });
-  const data=await res.json();
-  return data?.candidates?.[0]?.content?.parts?.[0]?.text || "Hmm... no answer 🤔";
+async function callGemini(prompt) {
+  try {
+    const genAI = new window.GoogleGenerativeAI(GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+    const result = await model.generateContent(prompt);
+    const reply = result.response.text();
+
+    return reply || "No response";
+  } catch (err) {
+    console.error(err);
+    return "⚠️ Gemini error. Check your API key + network.";
+  }
 }
 
-sendBtn.onclick=async()=>{
-  const q=chatInput.value.trim(); if(!q) return;
-  addMsg("user",q); chatInput.value=""; llmStatus.textContent="Thinking...";
-  const a=await callGemini(q);
-  addMsg("assistant",a);
-  llmStatus.textContent="Ready ✅";
+function addMsg(role, text) {
+  const bubble = document.createElement("div");
+  bubble.className =
+    role === "user"
+      ? "self-end bg-indigo-500/20 border border-indigo-500/30 p-2 rounded-xl"
+      : "self-start bg-emerald-500/20 border border-emerald-500/30 p-2 rounded-xl";
+  bubble.textContent = text;
+  chatBox.appendChild(bubble);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+sendBtn.onclick = async () => {
+  const text = chatInput.value.trim();
+  if (!text) return;
+  if (!GEMINI_API_KEY) return alert("Click 'Add API Key' first");
+
+  addMsg("user", text);
+  chatInput.value = "";
+  llmStatus.textContent = "Thinking... 🌿";
+
+  const reply = await callGemini(text);
+  addMsg("assistant", reply);
+  llmStatus.textContent = "Ready ✅";
 };
 
-// Boot
-loadModels();
-</script>
 
 </body>
 </html>

@@ -1,70 +1,224 @@
-# 👨‍💻 Deepak Raj JS
-
 <div align="center">
-  
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&pause=1000&color=6366F1&center=true&vCenter=true&random=false&width=600&lines=ECE+Student+%7C+Freelancer;Open+Source+Contributor+💙;Web+Developer+%26+Embedded+Systems;Turning+Ideas+into+Reality)](https://git.io/typing-svg)
+
+# Hi 👋, I'm Deepak Raj JS
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&pause=1000&color=FF006E&center=true&vCenter=true&width=600&lines=ECE+Student+%7C+Freelancer;Open+Source+Contributor+💙;Web+Developer+%26+Embedded+Systems;Turning+Ideas+into+Reality" alt="Typing SVG" />
 
 </div>
 
 ---
+
+<table width="100%">
+<tr>
+<td width="50%" valign="top">
 
 ## 🚀 About Me
 
 ```javascript
 const deepak = {
-    location: "Coimbatore, Tamil Nadu, India",
-    education: "Electronics & Communication Engineering",
-    interests: ["Web Development", "Embedded Systems", "Open Source"],
-    currentFocus: "Building innovative solutions with code",
-    lifePhilosophy: "Code. Create. Contribute. 🚀"
+  role: "ECE Student & Freelancer",
+  location: "Coimbatore, India 🇮🇳",
+  interests: [
+    "Web Development",
+    "Embedded Systems", 
+    "Open Source"
+  ],
+  learning: "Building cool stuff!",
+  funFact: "I turn ☕ into code"
 };
 ```
 
----
+### 💼 What I Do
+- 🌐 Web Development
+- 🔧 Embedded Systems
+- 💙 Open Source Contribution
+- 🎨 UI/UX Design
+- 🤖 Arduino Projects
 
-## 💼 Tech Stack & Tools
-
-<div align="center">
-
-### Languages
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![MATLAB](https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white)
-
-### Frontend Development
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
-
-### Embedded Systems & Hardware
-![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-
-### Tools & Platforms
-![VS Code](https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
-![Canva](https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white)
-
-</div>
-
----
+</td>
+<td width="50%" valign="top">
 
 ## 📊 GitHub Stats
 
+<img src="https://github-readme-stats.vercel.app/api?username=deepakrajjs-29&show_icons=true&theme=radical&hide_border=true&bg_color=1a1b27&title_color=FF006E&icon_color=FF006E" alt="GitHub Stats" width="100%"/>
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=deepakrajjs-29&theme=radical&hide_border=true&background=1a1b27&stroke=FF006E&ring=FF006E&fire=FF006E&currStreakLabel=FF006E" alt="GitHub Streak" width="100%"/>
+
+</td>
+</tr>
+</table>
+
+---
+
+## 💻 Featured Projects
+
+<table width="100%">
+<tr>
+<td width="33%" valign="top">
 <div align="center">
-  
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=deepakrajjs-29&show_icons=true&theme=midnight-purple&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=6366F1&icon_color=6366F1&text_color=c9d1d9"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=deepakrajjs-29&layout=compact&theme=midnight-purple&hide_border=true&bg_color=0D1117&title_color=6366F1&text_color=c9d1d9"/>
+
+### 🎯 My Portfolio
+**Personal Website**
+
+[![Portfolio](https://img.shields.io/badge/Visit-Portfolio-FF006E?style=for-the-badge&logo=safari&logoColor=white)](https://github.com/deepakrajjs-29)
+
+Showcasing my projects and skills with modern web design
+
+`HTML` `CSS` `JavaScript`
+
+</div>
+</td>
+
+<td width="33%" valign="top">
+<div align="center">
+
+### 🤖 IoT Projects
+**Arduino & Embedded**
+
+[![IoT](https://img.shields.io/badge/View-Projects-00D9FF?style=for-the-badge&logo=arduino&logoColor=white)](https://github.com/deepakrajjs-29)
+
+Smart home automation and sensor-based systems
+
+`Arduino` `C` `Sensors`
+
+</div>
+</td>
+
+<td width="33%" valign="top">
+<div align="center">
+
+### 📱 Web Apps
+**Full Stack Development**
+
+[![WebApps](https://img.shields.io/badge/Explore-Apps-8B5CF6?style=for-the-badge&logo=googlechrome&logoColor=white)](https://github.com/deepakrajjs-29)
+
+Interactive web applications with modern frameworks
+
+`HTML` `CSS` `Bootstrap`
+
+</div>
+</td>
+</tr>
+</table>
+
+---
+
+## 🛠️ Tech Stack
+
+<div align="center">
+
+### Languages & Frameworks
+<img src="https://skillicons.dev/icons?i=c,python,js,java,html,css,bootstrap,arduino,matlab&theme=dark" />
+
+### Tools & Platforms  
+<img src="https://skillicons.dev/icons?i=vscode,git,github,figma,opencv,linux&theme=dark" />
 
 </div>
 
+---
+
+## 📈 Contribution Activity
+
 <div align="center">
-  
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=deepakrajjs-29&theme=midnight-purple&hide_border=true&background=0D1117&ring=6366F1&fire=6366F1&currStreakLabel=6366F1)](https://git.io/streak-stats)
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=deepakrajjs-29&theme=react-dark&hide_border=true&area=true&bg_color=1a1b27&color=FF006E&line=FF006E&point=FFFFFF" width="100%"/>
+</div>
+
+---
+
+## 🎓 Certifications & Achievements
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="25%">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/Cert1.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/Cert1.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center" width="25%">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert2.PNG">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert2.PNG" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center" width="25%">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert3.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert3.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center" width="25%">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert4.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert4.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+</tr>
+<tr>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert5.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert5.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert6.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert6.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert7.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert7.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert8.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert8.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+</tr>
+<tr>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert9.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert9.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert10.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert10.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert11.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert11.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert12.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert12.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+</tr>
+<tr>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert13.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert13.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert14.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert14.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert15.png">
+<img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert15.png" width="100%" style="border-radius:10px"/>
+</a>
+</td>
+<td align="center">
+<img src="https://img.shields.io/badge/15+-Certifications-FF006E?style=for-the-badge&logo=certificate&logoColor=white" width="100%"/>
+<br><br>
+<sub>Click to view full size</sub>
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -73,140 +227,60 @@ const deepak = {
 ## 🏆 GitHub Trophies
 
 <div align="center">
-  
-[![trophy](https://github-profile-trophy.vercel.app/?username=deepakrajjs-29&theme=radical&no-frame=true&no-bg=true&margin-w=4&column=7)](https://github.com/ryo-ma/github-profile-trophy)
-
+<img src="https://github-profile-trophy.vercel.app/?username=deepakrajjs-29&theme=radical&no-frame=true&no-bg=true&row=1&column=7" width="100%"/>
 </div>
 
 ---
 
-## 📈 Contribution Graph
-
-<div align="center">
-  
-[![Deepak's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=deepakrajjs-29&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=6366F1&line=6366F1&point=FFFFFF)](https://github.com/ashutosh00710/github-readme-activity-graph)
-
-</div>
-
----
-
-## 🎓 Certifications
+## 📫 Let's Connect
 
 <div align="center">
 
 <table>
-  <tr>
-    <td align="center" width="33%">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/Cert1.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/Cert1.png" width="100%" alt="Certificate 1"/>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert2.PNG">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert2.PNG" width="100%" alt="Certificate 2"/>
-      </a>
-    </td>
-    <td align="center" width="33%">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert3.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert3.png" width="100%" alt="Certificate 3"/>
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert4.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert4.png" width="100%" alt="Certificate 4"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert5.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert5.png" width="100%" alt="Certificate 5"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert6.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert6.png" width="100%" alt="Certificate 6"/>
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert7.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert7.png" width="100%" alt="Certificate 7"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert8.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert8.png" width="100%" alt="Certificate 8"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert9.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert9.png" width="100%" alt="Certificate 9"/>
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert10.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert10.png" width="100%" alt="Certificate 10"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert11.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert11.png" width="100%" alt="Certificate 11"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert12.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert12.png" width="100%" alt="Certificate 12"/>
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert13.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert13.png" width="100%" alt="Certificate 13"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert14.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert14.png" width="100%" alt="Certificate 14"/>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert15.png">
-        <img src="https://raw.githubusercontent.com/deepakrajjs-29/deepakrajjs-29/main/certificate/cert15.png" width="100%" alt="Certificate 15"/>
-      </a>
-    </td>
-  </tr>
+<tr>
+<td align="center" width="25%">
+<a href="https://www.linkedin.com/in/deepak-raj-js-snsinstitutions/">
+<img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" width="100%"/>
+</a>
+<br>
+<sub>Professional Network</sub>
+</td>
+<td align="center" width="25%">
+<a href="https://instagram.com/deepak_raj._.29">
+<img src="https://img.shields.io/badge/Instagram-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white" width="100%"/>
+</a>
+<br>
+<sub>Daily Updates</sub>
+</td>
+<td align="center" width="25%">
+<a href="mailto:deepakrajjs2909@gmail.com">
+<img src="https://img.shields.io/badge/Gmail-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" width="100%"/>
+</a>
+<br>
+<sub>Business Inquiries</sub>
+</td>
+<td align="center" width="25%">
+<a href="https://github.com/deepakrajjs-29">
+<img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white" width="100%"/>
+</a>
+<br>
+<sub>Open Source</sub>
+</td>
+</tr>
 </table>
 
-*Click on any certificate to view full size*
-
-</div>
-
----
-
-## 📫 Connect With Me
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/deepak-raj-js-snsinstitutions/)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/deepak_raj._.29)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:deepakrajjs2909@gmail.com)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/)
-
 </div>
 
 ---
 
 <div align="center">
-  
-### 💡 *"The only way to do great work is to love what you do"*
 
-![Profile Views](https://komarev.com/ghpvc/?username=deepakrajjs-29&color=6366f1&style=for-the-badge&label=Profile+Views)
+### 💡 *"Code is like humor. When you have to explain it, it's bad."*
 
-**⭐️ From [deepakrajjs-29](https://github.com/deepakrajjs-29)**
+![Profile Views](https://komarev.com/ghpvc/?username=deepakrajjs-29&color=FF006E&style=for-the-badge&label=PROFILE+VIEWS)
+![GitHub Followers](https://img.shields.io/github/followers/deepakrajjs-29?style=for-the-badge&color=FF006E&labelColor=1a1b27)
+![GitHub Stars](https://img.shields.io/github/stars/deepakrajjs-29?style=for-the-badge&color=FF006E&labelColor=1a1b27)
+
+<sub>⭐️ From [deepakrajjs-29](https://github.com/deepakrajjs-29) with 💙</sub>
 
 </div>
